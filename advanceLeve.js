@@ -37,8 +37,77 @@
 // Output: Odd
 // Input: 24
 // Output: Even
-function evenOdd(num) {
-    return num % 2 == 0 ? "Even" : "Odd";
+// function evenOdd(num:number):string{
+//     return num%2==0? "Even" :"Odd"; 
+// }
+// let num:number=10;
+// console.log(evenOdd(num));
+// # #####################################################################################################
+//! 13/11/26 Today's two coding challenges
+// Question 1 – Second-largest distinct element
+// Given an array of integers, find the second-largest distinct element without sorting the array.
+// let nums: number[] = [12, 35, 1, 10, 34, 35];
+// Expected output: 34 
+// let nums: number[] = [12, 35, 1, 10, 34, 35];
+// function secondLargest(num:number[]):number{
+//     let firstLargest:number=num[0];
+//     let secondL:number=0;
+//     num.forEach((n)=>{
+//         if (n>firstLargest){
+//             secondL=firstLargest;
+//             firstLargest=n;
+//         }
+//         else if(secondL<n && n<firstLargest){
+//             secondL=n
+//         }
+//     })
+//     return secondL
+// }
+// console.log(secondLargest(nums))
+// # #####################################################################################################
+//! Question 2 – Move all zeros to the end
+// Move all zeros to the end of an array while maintaining the order of non-zero elements.
+// let nums: number[] = [0, 1, 0, 3, 12];
+// Expected output: [1, 3, 12, 0, 0]
+// function zero (num:number[]):number[]{
+//     let position:number=0;
+//     num.forEach((i,index)=>{
+//         if(i !==0){
+//             num[position]=i;
+//             position ++;
+//         }
+//     })
+//     while(position<num.length){
+//         num[position]=0;
+//         position++;
+//     }
+//     return num
+// }
+// console.log(zero(nums))
+// #  # #####################################################################################################
+//! day --3 14/11/26
+// 1. What is the Two-Pointer Technique?
+// Two pointers means using two variables to track two different positions in an array.
+// Usually:
+// - left starts at the beginning.
+// - right starts at the end.
+// - We move one or both pointers depending on the problem.
+//! 2. Worked example: Reverse an array
+// Input:
+// [10, 20, 30, 40, 50]
+// Expected output:
+// [50, 40, 30, 20, 10]
+let num = [10, 30, 40, 50, 60];
+function twoPointer(num) {
+    let left = 0;
+    let right = num.length - 1;
+    while (left < right) {
+        let temp = num[left];
+        num[left] = num[right];
+        num[right] = temp;
+        left++;
+        right--;
+    }
+    return num;
 }
-let num = 10;
-console.log(evenOdd(num));
+console.log(twoPointer(num));
